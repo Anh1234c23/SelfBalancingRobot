@@ -172,8 +172,6 @@ Driver động cơ
 - ENB (Motor B)	PA1 (TIM2_CH2)	ENB	PWM Motor B
 - VCC	Pin/Nguồn	VCC	Nguồn cho driver
 - GND	GND	GND	Nối đất
-Sơ đồ minh họa
-(Sử dụng công cụ như Fritzing hoặc vẽ tay để tạo sơ đồ, sau đó chèn ảnh vào đây nếu có. Ví dụ: ![Sơ đồ kết nối](images/connection_diagram.png))
 
 Cài đặt
 1. Kết nối phần cứng
