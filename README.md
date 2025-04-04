@@ -116,7 +116,7 @@ If you want to contribute to this project:
 
 Robot 2 Bánh Tự Cân Bằng Điều Khiển Qua Bluetooth
 Giới thiệu
-Dự án này là một robot 2 bánh tự cân bằng được xây dựng dựa trên vi điều khiển STM32F103C8T6. Robot sử dụng cảm biến MPU6050 để đo góc nghiêng và giữ thăng bằng, kết hợp với module HC-06 để điều khiển qua Bluetooth từ ứng dụng "Balance_car_Keyes" trên điện thoại. Robot có thể thực hiện các lệnh di chuyển như tiến, lùi, quay trái, quay phải, đồng thời duy trì trạng thái cân bằng nhờ các thuật toán xử lý tín hiệu và điều khiển.
+Dự án này là một robot 2 bánh tự cân bằng được xây dựng dựa trên vi điều khiển STM32F103C8T6. Robot sử dụng cảm biến MPU6050 để đo góc nghiêng và giữ thăng bằng, kết hợp với module HC-06 để điều khiển qua Bluetooth từ ứng dụng "Arduino Car" trên điện thoại. Robot có thể thực hiện các lệnh di chuyển như tiến, lùi, quay trái, quay phải, đồng thời duy trì trạng thái cân bằng nhờ các thuật toán xử lý tín hiệu và điều khiển.
 
 Cơ sở lý thuyết
 Robot 2 bánh tự cân bằng hoạt động dựa trên nguyên lý của bài toán con lắc ngược (Inverted Pendulum), một hệ thống không ổn định tự nhiên cần được điều khiển liên tục để duy trì trạng thái thẳng đứng. Các thành phần lý thuyết chính bao gồm:
@@ -130,7 +130,7 @@ PID Controller:
 Bộ điều khiển Tỷ lệ - Tích phân - Vi phân (Proportional-Integral-Derivative) điều chỉnh tốc độ động cơ dựa trên sai số giữa góc hiện tại và góc mục tiêu (thường là 0° để giữ thẳng đứng).
 
 Điều khiển Bluetooth:
-Module HC-06 nhận lệnh từ ứng dụng "Balance_car_Keyes" qua giao thức UART, cho phép điều khiển hướng di chuyển trong khi vẫn duy trì cân bằng.
+Module HC-06 nhận lệnh từ ứng dụng "Arduino Car" qua giao thức UART, cho phép điều khiển hướng di chuyển trong khi vẫn duy trì cân bằng.
 Tính năng chính
 Tự cân bằng bằng thuật toán Kalman Filter và PID.
 Điều khiển qua Bluetooth với các lệnh: Tiến (F), Lùi (B), Trái (L), Phải (R), Dừng (S).
@@ -147,7 +147,7 @@ Nguồn điện: Pin hoặc nguồn 5V/3.3V phù hợp.
 Yêu cầu phần mềm
 IDE: STM32CubeIDE hoặc Keil uVision.
 Thư viện: STM32 HAL Library.
-Ứng dụng điều khiển: "Balance_car_Keyes" (tải từ Google Play Store hoặc App Store).
+Ứng dụng điều khiển: "Arduino Car" (tải từ Google Play Store hoặc App Store).
 Công cụ nạp code: ST-Link hoặc UART Bootloader.
 Kết nối phần cứng
 Dưới đây là sơ đồ kết nối chi tiết giữa các thành phần:
@@ -172,6 +172,8 @@ Driver động cơ
 - ENB (Motor B)	PA1 (TIM2_CH2)	ENB	PWM Motor B
 - VCC	Pin/Nguồn	VCC	Nguồn cho driver
 - GND	GND	GND	Nối đất
+Sơ đồ minh họa
+(Sử dụng công cụ như Fritzing hoặc vẽ tay để tạo sơ đồ, sau đó chèn ảnh vào đây nếu có. Ví dụ: ![Sơ đồ kết nối](images/connection_diagram.png))
 
 Cài đặt
 1. Kết nối phần cứng
@@ -189,11 +191,11 @@ GPIO: PA4, PA5, PA6, PA7 là Output.
 Biên dịch và nạp code vào STM32 bằng ST-Link.
 3. Kết nối Bluetooth
 Bật Bluetooth trên điện thoại, tìm và ghép nối với HC-06 (mật khẩu mặc định thường là "1234" hoặc "0000").
-Mở ứng dụng "Balance_car_Keyes", chọn kết nối với HC-06.
+Mở ứng dụng "Arduino Car", chọn kết nối với HC-06.
 Cách sử dụng
 Cấp nguồn cho robot.
 Chờ robot tự hiệu chỉnh MPU6050 (khoảng vài giây).
-Sử dụng ứng dụng "Balance_car_Keyes" để điều khiển:
+Sử dụng ứng dụng "Arduino Car" để điều khiển:
 Tiến: Nhấn nút "Forward" (gửi 'F').
 Lùi: Nhấn nút "Backward" (gửi 'B').
 Trái: Nhấn nút "Left" (gửi 'L').
@@ -222,6 +224,7 @@ Nếu bạn muốn đóng góp vào dự án, hãy:
 Fork repository này.
 Tạo nhánh mới và thực hiện thay đổi.
 Gửi Pull Request với mô tả chi tiết.
+
 Tác giả
 Tạo bởi: [Nguyễn Thế Anh]
 Ngày: 02/04/2025
